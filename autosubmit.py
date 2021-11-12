@@ -48,6 +48,8 @@ def excuteCmd(local,repos, timeout = 1):
         s.stdin.write(str.encode('git remote add  origin git@github.com:Ren-Xuan/LeetCode.git \n'))
         #print(s.stdout.write())
         time.sleep(2)
+        s.stdin.write(str.encode('git commit -m '+str(time.time()) +"\n"))
+        time.sleep(2)
         s.stdin.write(str.encode('git push origin master\n'))
         #print(s.stdout.write())
         time.sleep(2)
