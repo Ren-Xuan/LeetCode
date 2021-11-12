@@ -1,12 +1,12 @@
-import os
+
 import time
 import subprocess
 import argparse
- 
+import schedule
 class TimeoutError(Exception):
     pass 
 
-def excuteCmd(local,repos, timeout = 2):
+def excuteCmd(repos, timeout = 2):
         s = subprocess.Popen("C:\Windows\System32\cmd.exe",stdin=subprocess.PIPE, stdout=subprocess.PIPE, shell = True)
         time.sleep(timeout)
         s.stdin.write(str.encode('git init \n'))
@@ -23,7 +23,7 @@ def excuteCmd(local,repos, timeout = 2):
         print(out.decode(encoding='gbk'))
         time.sleep(timeout)
         s.kill()
-    
+
  
 if __name__ == '__main__':
         ''' self test ''' 
@@ -31,9 +31,17 @@ if __name__ == '__main__':
         parser.add_argument('--local', type=str,default=None)
         parser.add_argument('--repos', type=str,default=None)
         args = parser.parse_args()
+        print(args.repos)
+        print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
         try: 
-            ret = excuteCmd(args.local,args.repos,2)
-            print(ret) 
+            
+            #schedule.every().day.at('13:31').do(excuteCmd,args.repos)
+            schedule.every(1).minutes.do(excuteCmd,args.repos)
+            while True:
+                schedule.run_pending()
+                time.sleep(1)
+            #ret = excuteCmd(args.local,args.repos,2)
+            #print(ret) 
         except TimeoutError: 
             print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) )
             print("error")

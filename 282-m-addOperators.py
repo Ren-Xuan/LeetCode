@@ -16,7 +16,6 @@ class Solution(object):
             return result
 
         def dfs(path,candidate,target,res):
-            
             #print(path,"\t",candidate,res)
             if len(path)== 2 and path[-2] == "0" and path[-1] in ['0','1','2','3','4','5','6','7','8','9'] :
                 #in python2 eval(1*05) can be done,and in python3 will throw error
@@ -30,17 +29,8 @@ class Solution(object):
                 return
             elif len(candidate) == 0:
                 return
-            #elif cur == None:
-            #    if len(candidate) == 0:
-            #        return
-            #    dfs(path+candidate[0],candidate[1:],target,res)
-            if False:
-                pass      
-            else:
-
-                for e in ["+","-","*",""]:
-                    dfs(path+e+candidate[0],candidate[1:],target,res)
-                    continue
+            for e in ["+","-","*",""]:
+                dfs(path+e+candidate[0],candidate[1:],target,res)
         dfs(num[0],num[1:],target,res)
         return list(res)
 

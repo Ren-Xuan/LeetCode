@@ -29,7 +29,7 @@ class Solution(object):
         Bob 每次取最小的那堆
         然后考虑Alice，每次Alice取最多那堆，然后你获得的就是reward = total - sum(Alice) - Bob
         then 最大化reward
-        policy = 由于Alice取1次，我也一定努力取一次，直到最后剩下一堆银币，这一堆硬币只有一个
+        policy = 由于Alice取1次，我也一定努力取一次，直到最后剩下一堆银币
                     当我一轮中不能选硬币的时候一定是[x,0,0,...,0,0] x>=0
                     then 最小化x
                     这时候policy就是 每次让Alice拿最高那堆硬币
