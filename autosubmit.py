@@ -35,7 +35,7 @@ if __name__ == '__main__':
         try: 
             
             schedule.every().day.at('02:30').do(excuteCmd,args.repos)
-            schedule.every().day.at('22:24').do(excuteCmd,args.repos)
+            schedule.every().day.at('11:24').do(excuteCmd,args.repos)
             #schedule.every(1).minutes.do(excuteCmd,args.repos)
             while True:
                 schedule.run_pending()

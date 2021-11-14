@@ -1,34 +1,39 @@
 class Node():
-    def __init__(self):
-        self.son = [None]*24
-        self.val = [0]*24
+    def __init__(self,val):
+        self.son = {}
+        self.val = val
 class MapSum:
 
     def __init__(self):
         
-        self.root =Node()
+        self.root =Node(0)
 
     def insert(self, key: str, val: int) -> None:
         cur = self.root
-        for e in key[:-1]:
-            index = ord(e) - ord('a')
-            if not cur.son[index]:
-                cur.son[index] = Node()
+        for e in key:
+            index = e
+            if index not in cur.son:
+                cur.son[index] = Node(0)
             cur = cur.son[index]
-        cur.val[ord(key[-1]) - ord('a')]  =val
+        if key[-1] not in  cur.son:
+            cur.son[key[-1]] = Node(val)
+        else:
+            cur.son[key[-1]].val = val
 
     def sum(self, prefix: str) -> int:
         cur = self.root
         for e in prefix:
-            index = ord(e) - ord('a')
+            index = e
+            if index not in cur.son:
+                return 0 
             cur = cur.son[index]
         def getSum(root):
             if not root:
                 return 0
             s = 0
-            for i in range(24):
-                s+=root.val[i] if root.son[i] else 0
-                s+=getSum(root.son[i])
+            for k in root.son:
+                s+=root.son[k].val
+                s+=getSum(root.son[k])
             return s
 
         return getSum(cur)
