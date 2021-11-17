@@ -40,7 +40,10 @@ class Solution:
                 if masks[i] & masks[j] == 0:
                     max_val = max(max_val, lens[i] * lens[j])
         return max_val
+
+
     def maxProduct(self, words) -> int:
         n = len(words)
         arr = tuple(set(s) for s in words)
+        
         return max(*(len(words[i]) * len(words[j]) for i in range(n) for j in range(i + 1, n) if arr[i].isdisjoint(arr[j])), 0, 0)
