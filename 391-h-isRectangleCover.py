@@ -1,7 +1,10 @@
+from typing import DefaultDict
+
+
 class Solution:
-    def isRectangleCover(self, rectangles: List[List[int]]) -> bool:
+    def isRectangleCover(self, rectangles) -> bool:
         area, minX, minY, maxX, maxY = 0, rectangles[0][0], rectangles[0][1], rectangles[0][2], rectangles[0][3]
-        cnt = defaultdict(int)
+        cnt = DefaultDict(int)
         for rect in rectangles:
             x, y, a, b = rect[0], rect[1], rect[2], rect[3]
             area += (a - x) * (b - y)
