@@ -3,7 +3,6 @@ class Solution:
         if not s:
             return 0
         res = 0
-        left = 0
         sub = []
         for i in range(len(s)):
             while s[i] in sub:

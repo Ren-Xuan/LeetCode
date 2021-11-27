@@ -1,5 +1,5 @@
 class Solution:
-    def maxDotProduct(self, nums1: List[int], nums2: List[int]) -> int:
+    def maxDotProduct(self, nums1, nums2) -> int:
         m, n = len(nums1), len(nums2)
         f = [[0] * n for _ in range(m)]
         # f[i][j]表示只考虑数组num1前i个和nums2的前j个最大结果
