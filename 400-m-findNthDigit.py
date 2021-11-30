@@ -1,6 +1,7 @@
 class Solution:
     def findNthDigit(self, n: int) -> int:
         digitCount = 1
+        
         bottom, top = 0, 10
         while n > (top - bottom) * digitCount:
             n -= (top - bottom) * digitCount
