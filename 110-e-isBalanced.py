@@ -4,6 +4,9 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
+
+
+        
 class Solution:
     def isBalanced(self, root: TreeNode) -> bool:
         def maxDepth(root: TreeNode) -> int:
