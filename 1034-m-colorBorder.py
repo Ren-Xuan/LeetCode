@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Solution:
     def colorBorder(self, grid: List[List[int]], row: int, col: int, color: int) -> List[List[int]]:
         self.m, self.n = len(grid), len(grid[0])
@@ -15,7 +18,8 @@ class Solution:
         return self.grid
     
     def dfs(self, row, col):
-        count = 0   #如果上下左右四个方向的格子都是原始颜色，那么这个格子就不需要改变颜色，反之则改变颜色
+        count = 0   
+        #如果上下左右四个方向的格子都是原始颜色，那么这个格子就不需要改变颜色，反之则改变颜色
         for (x, y) in [(row-1,col), (row+1,col), (row,col-1), (row,col+1)]:
             if 0 <= x < self.m and 0 <= y < self.n and self.grid2[x][y] == self.originColor:
                  count += 1
@@ -23,6 +27,7 @@ class Solution:
             self.grid[row][col] = self.targetColor
 
         #往上下左右四个方向找
+
         self.visit.add((row, col))
         for (x, y) in [(row-1,col), (row+1,col), (row,col-1), (row,col+1)]:
             if (x, y) not in self.visit and 0 <= x < self.m and 0 <= y < self.n and self.grid[x][y] == self.originColor:
