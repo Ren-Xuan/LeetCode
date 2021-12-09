@@ -1,8 +1,6 @@
 from typing import Counter, List
-
-
 class Solution:
-    def largestSumAfterKNegations(self, nums: List[int], k: int) -> int:
+    def largestSumAfterKNegations(self, nums, k: int) -> int:
         freq = Counter(nums)
         ans = sum(nums)
         for i in range(-100, 0):
