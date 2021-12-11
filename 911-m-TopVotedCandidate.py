@@ -1,7 +1,6 @@
 from typing import Counter, List
 import heapq
 class TopVotedCandidate:
-
     def __init__(self, persons: List[int], times: List[int]):
         q = []
         self.res = []
@@ -10,6 +9,8 @@ class TopVotedCandidate:
             c[i] += 1
             heapq.heappush(q, (-c[i], -j, i))
             self.res.append((q[0][2], -q[0][1]))
+
+
 
     def q(self, t: int) -> int:
         l, r = 1, len(self.res)
