@@ -6,6 +6,10 @@ class TimeoutError(Exception):
     pass 
 
 def excuteCmd(repos, timeout = 2):
+        cur = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+        print(cur)
+        with open('./test.txt', 'w') as f:
+            f.write(cur)
         s = subprocess.Popen("C:\Windows\System32\cmd.exe",stdin=subprocess.PIPE, stdout=subprocess.PIPE, shell = True)
         time.sleep(timeout)
         s.stdin.write(str.encode('git init \n'))
@@ -30,7 +34,8 @@ if __name__ == '__main__':
         parser.add_argument('--repos', type=str,default=None)
         args = parser.parse_args()
         print(args.repos)
-        print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+        cur = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+        print(cur)
         try: 
             
             schedule.every().day.at('02:30').do(excuteCmd,args.repos)
