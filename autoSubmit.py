@@ -8,7 +8,7 @@ class TimeoutError(Exception):
 def excuteCmd(repos, timeout = 2):
         cur = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
         print(cur)
-        with open('./test.txt', 'w') as f:
+        with open('./test.txt', 'w+') as f:
             f.write(cur)
         s = subprocess.Popen("C:\Windows\System32\cmd.exe",stdin=subprocess.PIPE, stdout=subprocess.PIPE, shell = True)
         time.sleep(timeout)
