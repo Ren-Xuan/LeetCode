@@ -2,10 +2,13 @@ import time
 import subprocess
 import argparse
 import schedule
+import random
 class TimeoutError(Exception):
     pass 
 
 def excuteCmd(repos, timeout = 2):
+        if random.random()>0.5:
+            return
         cur = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
         print(cur)
         with open('./test.txt', 'w+') as f:
