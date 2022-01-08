@@ -7,7 +7,8 @@ class TimeoutError(Exception):
     pass 
 
 def excuteCmd(repos, timeout = 2):
-        if random.random()>0.5:
+        if random.random()>0.2:
+            print("EXIT")
             return
         cur = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
         print(cur)
@@ -39,12 +40,16 @@ if __name__ == '__main__':
         print(args.repos)
         cur = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
         print(cur)
+
         try: 
             
-            schedule.every().day.at('02:30').do(excuteCmd,args.repos)
-            schedule.every().day.at('10:24').do(excuteCmd,args.repos)
-            schedule.every().day.at('18:24').do(excuteCmd,args.repos)
-            schedule.every().day.at('22:24').do(excuteCmd,args.repos)
+            schedule.every().day.at('02:38').do(excuteCmd,args.repos)
+            schedule.every().day.at('10:21').do(excuteCmd,args.repos)
+            schedule.every().day.at('13:54').do(excuteCmd,args.repos)
+            schedule.every().day.at('15:34').do(excuteCmd,args.repos)
+            schedule.every().day.at('19:24').do(excuteCmd,args.repos)
+            schedule.every().day.at('22:04').do(excuteCmd,args.repos)
+            schedule.every().day.at('23:54').do(excuteCmd,args.repos)
             #schedule.every(1).minutes.do(excuteCmd,args.repos)
             while True:
                 schedule.run_pending()
