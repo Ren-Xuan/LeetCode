@@ -7,7 +7,7 @@ class TimeoutError(Exception):
     pass 
 
 def excuteCmd(repos, timeout = 2):
-        if random.random()>0.2:
+        if random.random()>0.7:
             print("EXIT")
             return
         cur = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
