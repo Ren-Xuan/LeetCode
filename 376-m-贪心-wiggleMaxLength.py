@@ -63,3 +63,4 @@ class Solution:
                 prevdiff = diff
         
         return ret
+s

@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Solution:
     def isEscapePossible(self, blocked: List[List[int]], source: List[int], target: List[int]) -> bool:
         # 0 <= blocked.length <= 200 说明只有这个限制是范围最小的 从这里入手

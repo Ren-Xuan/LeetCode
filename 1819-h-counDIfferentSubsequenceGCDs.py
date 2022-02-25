@@ -1,3 +1,5 @@
+import collections
+import math
 from typing import List
 
 
@@ -24,3 +26,21 @@ class Solution:
         
         return ans
 
+
+    def countDifferentSubsequenceGCDs2(self, nums: List[int]) -> int:
+        d = collections.defaultdict(list)
+        ma = max(nums)
+        s = set(nums)
+        #列举i是否是一个子序列的公约数
+        for i in range(1, ma + 1):
+            #如果i是公约数，那么i的整数倍n在nums中的话
+            #那么以i作为公约数的list就记住n(即add(n))
+            for n in range(i, ma + 1, i):
+                if n in s:
+                    d[i].append(n)
+        #问题是现在我们的d是记住了所有的公约数，并没有体现最大这个东西
+        #但是题目要求找的是所有
+        #假如某一个长序列arr的公约数们有a、b、c且a<b<c最大公约数是c
+        #则这个一定存在长序列arr的某个子序列subArr，它的最大公约数为c
+        #只需要一个set就能统计最大公约数的数目
+        return len(set((tuple(i) for i in d.values())))

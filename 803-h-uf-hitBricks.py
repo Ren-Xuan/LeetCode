@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Solution:
     def hitBricks(self, grid: List[List[int]], hits: List[List[int]]) -> List[int]:
         # ==================== 并查集模板 =========================

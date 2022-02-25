@@ -24,7 +24,12 @@ class Solution:
             if maxleft[i-1] <= minright[i]:
                 return i
     def partitionDisjoint2(self, nums):
-
+        """
+        已知数组中第一个元素一定划分在 left中，
+        那么从左到右遍历数组时，小于第一个元素的数也应划分在left中，
+        同时更新当前left中所有元素的最大值记为max_left，
+        接着往后遍历时，将小于max_left的值也划分到left中，更新max_left，即可解决。
+        """
         # [0, pos]的最大值 也就是它是左边阵营的最大值
         lmaxv = nums[0]
         # [0, i]的最大值
