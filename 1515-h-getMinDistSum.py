@@ -17,3 +17,6 @@ class Solution:
         print(x0,x1)
 
         return forward((x0,x1))
+    def getMinDistSum(self, positions: List[List[int]]) -> float:
+        from scipy.optimize import minimize
+        return minimize(lambda x:sum([sqrt((x[0]-x1)**2+(x[1]-y1)**2)for x1,y1 in positions]),[50,50]).fun
