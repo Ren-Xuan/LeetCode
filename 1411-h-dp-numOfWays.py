@@ -42,7 +42,8 @@ class Solution:
     def numOfWays(self, n: int) -> int:
         """
         在第一层可以摆出6个ABA类型的和6个ABC类型的涂法。
-        对于下面每一层，每一个ABA涂法可以拼接2个ABC涂法和3个ABA涂法，每一个ABC涂法可以拼接2个ABC涂法和2个ABA涂法。
+        对于下面每一层，每一个ABA涂法可以拼接2个ABC涂法和3个ABA涂法，
+        每一个ABC涂法可以拼接2个ABC涂法和2个ABA涂法。
         这样迭代可以算出第N层有几种ABA涂法和ABC涂法，相加就是答案。
         """
         aba=6

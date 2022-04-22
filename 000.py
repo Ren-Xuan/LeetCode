@@ -37,4 +37,5 @@ def solve(n):
             print("与1、3、9都相交")
             break
         cur = nextNum(cur)
+
 solve(1235)

@@ -207,7 +207,7 @@ class Solution:
         for j in range(n):
             i = 0
             while i !=n or j!=n:
-                if 
+                pass
 
 s = Solution()
 print(s.minimumDistance("AXFX"))#局部最优
